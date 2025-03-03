@@ -1,31 +1,17 @@
 <x-app-layout>
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
-      <div class="card bgi-no-repeat h-xl-100" style="height: 200px!important;background-color: #1B283F; background-position: 0 calc(100% + 0.5rem); background-size: 100% auto; background-image:url('assets/media/svg/general/rhone.svg')">
-        <div class="card-body">
-          <a href="#" class="btn btn-danger gw-bold px-6 py-3">Input Jurnal</a>
+        <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
+            <div class="card bgi-no-repeat h-xl-100"
+                style="height: 200px!important;background-color: #1B283F; background-position: 0 calc(100% + 0.5rem); background-size: 100% auto; background-image:url('assets/media/svg/general/rhone.svg')">
+                <div class="card-body">
+                    <a href="#" class="btn btn-danger gw-bold px-6 py-3">Input Jurnal</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-md-9 col-xl-9 col-xxl-9" style="padding-bottom: 20px;">
-    <!--begin::Engage widget 4-->
-    <a href="https://ninedragonlabs.com" class="card bgi-no-repeat h-xl-100" style="height: 200px!important;background-color: #1B283F; background-position: calc(100% + 1rem) bottom; background-size: 50% auto; background-image:url('assets/media/misc/bg-1.png')">
-      <!--begin::Body-->
-      <div class="card-body d-flex flex-column align-items-start justify-content-center">
-        <h3 class="text-white fw-bold mb-3">NineDragonLabs</h3>
-        <p class="text-white fs-7">aplikasi lengkap
-        <br />dengan berbagai fitur-fitur terbaru
-        <br />memudahkan proses manajemen</p>
-      </div>
-      <!--end::Body-->
-    </a>
-    <!--end::Engage widget 4-->
-    </div>
-
-    <!-- <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
+        
+        <!-- <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
       <div class="card bgi-no-repeat h-xl-100 mb-5 mb-lg-10" style="background-color: #1B283F; background-position: 0 calc(100% + 0.5rem); background-size: 100% auto; background-image:url('assets/media/misc/bg-2.jpg')">
             <div class="card-body">
           <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign" class="btn btn-danger gw-bold px-6 py-3">Preview Reports</a>
@@ -90,46 +76,52 @@
         </div>
         </div> -->
 
-    <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
-      <div class="card text-left">
-        <div class="card-header" style="padding: 1rem 2rem; color: black; font-weight: bold; min-height: 20px; padding: 0.7rem;">
-          <div class="row no-gutters">
-            <div class="col-8" style="text-align: left;">
-              <a href="#" class="badge badge-secondary"><i class="fa fa-database mr-2" style="margin-right: .5rem"></i>Master Data</a>
-            </div>
-            <div class="col-4" style="text-align: right;">
+        <div class="col-md-4 col-xl-4 col-xxl-3" style="padding-bottom: 20px;">
+            <div class="card text-left">
+                <div class="card-header"
+                    style="padding: 1rem 2rem; color: black; font-weight: bold; min-height: 20px; padding: 0.7rem;">
+                    <div class="row no-gutters">
+                        <div class="col-8" style="text-align: left;">
+                            <a href="#" class="badge badge-secondary"><i class="fa fa-database mr-2"
+                                    style="margin-right: .5rem"></i>Master Data</a>
+                        </div>
+                        <div class="col-4" style="text-align: right;">
 
-            </div>
-          </div>
-        </div>
-        <div class="card-body" style="padding: 0rem; height: 130px;">
-          <a href="#">
-          <div class="row no-gutters">
-            <div class="col-8">
-              <div class="card-body" style="padding: 1.25rem 2.25rem;">
-                <div class="fs-2x fs-sm-3 fs-md-5 fs-lg-5 fs-xl-5" style="color: black; font-weight: 600">Daftar User</div>
-                <p class="card-text"><p class="lh-1" style="color: black;">daftar yang memuat seluruh akun user</p></p>
-              </div>
-            </div>
-            <div class="col-4" style="text-align: center;">
-                <img src="{{url('/assets/media/banner/01.png')}}" class="img-fluid">
-            </div>
-          </div>
-          </a>
-        </div>
-        <div class="card-footer card-text" style="padding: 1rem 1rem; color: gray; font-weight: 600;height: 48px!important;">
-          <div class="row no-gutters">
-            <div class="col-4" style="text-align: left;">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="padding: 0rem; height: 130px;">
+                    <a href="#">
+                        <div class="row no-gutters">
+                            <div class="col-8">
+                                <div class="card-body" style="padding: 1.25rem 2.25rem;">
+                                    <div class="fs-2x fs-sm-3 fs-md-5 fs-lg-5 fs-xl-5"
+                                        style="color: black; font-weight: 600">Daftar User</div>
+                                    <p class="card-text">
+                                    <p class="lh-1" style="color: black;">daftar yang memuat seluruh akun user</p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-4" style="text-align: center;">
+                                <img src="{{ url('/assets/media/banner/01.png') }}" class="img-fluid">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-footer card-text"
+                    style="padding: 1rem 1rem; color: gray; font-weight: 600;height: 48px!important;">
+                    <div class="row no-gutters">
+                        <div class="col-4" style="text-align: left;">
 
-            </div>
-            {{-- <div class="col-8" style="text-align: right;">
+                        </div>
+                        {{-- <div class="col-8" style="text-align: right;">
               Total Akun <a href="#" class="badge rounded-pill badge-secondary">{{\App\Models\Coa::count()}}</a>
             </div> --}}
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 
 </x-app-layout>
