@@ -23,7 +23,8 @@
                                     @if (!empty($hero->image))
                                         <div class="mt-3">
                                             <p class="text-gray-700 dark:text-gray-300">This Background:</p>
-                                            <img src="{{ asset('storage/' . $hero->image) }}" alt="Background Image"
+                                            <img src="{{ asset(Str::startsWith($hero->image, 'hero/') ? 'storage/' . $hero->image : 'assets/img/' . $hero->image) }}"
+                                                alt="Background Image"
                                                 class="img-fluid rounded-lg border border-gray-300 dark:border-gray-600"
                                                 style="max-height: 200px; object-fit: cover;">
                                         </div>
@@ -37,6 +38,7 @@
                                         </div>
                                     @enderror
                                 </div>
+
                                 <div class="mb-3">
                                     <label for="name"
                                         class="form-label block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
