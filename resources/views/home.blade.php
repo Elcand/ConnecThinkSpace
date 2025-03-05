@@ -6,9 +6,17 @@
     <section class="wrapper vh-100 d-flex align-items-center text-center text-white position-relative" id="home">
         <div class="swiper-fullscreen nav-dark w-100 h-100">
             <div class="swiper w-100 h-100">
-                <div class="swiper-slide bg-dark bg-overlay-600"
-                    style="background-image: url('{{ asset(isset($hero) && $hero->image ? 'assets/img/' . $hero->image : 'assets/img/default.png') }}');
+                <div class="swiper w-100 h-100">
+                    <div class="swiper-slide bg-dark bg-overlay-600"
+                        style="background-image: url('{{ asset(
+                            isset($hero) && $hero->image
+                                ? (Str::startsWith($hero->image, 'hero/')
+                                    ? 'storage/' . $hero->image
+                                    : 'assets/img/' . $hero->image)
+                                : 'assets/img/default.png',
+                        ) }}');
                     background-size: cover; background-position: center;">
+                    </div>
                 </div>
             </div>
             <div class="position-absolute top-50 start-50 translate-middle w-100">

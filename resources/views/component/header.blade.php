@@ -4,8 +4,9 @@
             <a href="/">
                 <div class="row">
                     <div class="col">
-                        <img src="{{ asset('assets/img/logo.png') }}" srcset="{{ asset('assets/img/logo.png') }}"
-                            alt="Logo" style="border-radius: auto; height: 50px;" />
+                        <img src="{{ asset('assets/img/logo/bg_dark.png') }}"
+                            srcset="{{ asset('assets/img/logo/bg_dark.png') }}" alt="Logo"
+                            style="border-radius: auto; height: 50px;" />
                     </div>
                     <div class="col">
                         <h3 class="text-white fs-25 mt-2 mb-5 text-center">ConnecThink Space</h3>
