@@ -7,8 +7,8 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <input type="text" class="form-control w-50" placeholder="Search user">
-                    <button class="btn btn-dark"> <a href="{{ route('admin.studio.create') }}">+ Add
-                            User</a></button>
+                    <a href="{{ route('admin.studio.create') }}" class="btn btn-primary">+ Add
+                        User</a>
                 </div>
                 <table class="table align-middle">
                     <thead>
