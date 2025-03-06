@@ -15,9 +15,15 @@
                 <div class="col">
                     <div class="card h-100 shadow-lg border border-dark-subtle">
                         <figure class="card-img-top overlay overlay-1 hover-scale">
-                            <a href="#" class="position-relative">
-                                <img src="{{ asset('assets/img/' . $studio->image) }}"
-                                    alt="{{ $studio->name_labs ?? 'Studio' }}" class="card-img-top img-fluid">
+                            <a href="#" class="position-relative d-block">
+                                <div class="card-img-top img-fluid  bg-overlay-600"
+                                    style="background-image: url('{{ isset($studio) && $studio->image
+                                        ? (Str::startsWith($studio->image, 'storage/studio/')
+                                            ? asset($studio->image)
+                                            : asset('assets/img/' . $studio->image))
+                                        : asset('assets/img/lab.jpeg') }}');
+                                    background-size: cover; background-position: center; height: 250px; border-radius: 10px;">
+                                </div>
                                 <figcaption>
                                     <h5 class="from-top mb-0">Read More</h5>
                                 </figcaption>

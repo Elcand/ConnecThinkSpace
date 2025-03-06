@@ -30,23 +30,27 @@ class StudioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image'        => 'required|image|mimes:jpeg,png,jpg,|max:2048',
+            'image'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name_labs'    => 'required|string',
             'description'  => 'required|string',
         ]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = $image->storeAs('studio', $image->hashName());
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('studio', $filename);
+            $imagePath = 'studio/' . $filename;
         } else {
             $imagePath = null;
         }
 
         Studio::create([
             'image'        => $imagePath,
+            // dd($imagePath),
             'name_labs'    => $request->name_labs,
             'description'  => $request->description,
         ]);
+
         return redirect()->route('admin.studio.index')->with('success', 'Studio berhasil ditambahkan');
     }
 }
