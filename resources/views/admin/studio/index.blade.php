@@ -2,7 +2,7 @@
 
     @section('title', 'List Studio')
     <div class="container mt-5">
-        <h4 class="mb-3">Manage User</h4>
+        <h1 class="mb-3">Manage Studio</h1>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -14,7 +14,7 @@
                     <thead>
                         <tr>
                             <th class="fw-semibold">Name</th>
-                            <th class="fw-semibold">Role</th>
+                            <th class="fw-semibold">Description</th>
                             <th class="fw-semibold">Actions</th>
                         </tr>
                     </thead>
@@ -27,7 +27,9 @@
                                     <button class="btn btn-light dropdown-toggle"
                                         data-bs-toggle="dropdown">Actions</button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Show</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('admin.studio.show', $studio->slug) }}">Show</a>
+                                        </li>
                                         <li><a class="dropdown-item" href="#">Edit</a></li>
                                         <li><a class="dropdown-item" href="#">Delete</a></li>
                                     </ul>

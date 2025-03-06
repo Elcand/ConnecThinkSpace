@@ -53,4 +53,10 @@ class StudioController extends Controller
 
         return redirect()->route('admin.studio.index')->with('success', 'Studio berhasil ditambahkan');
     }
+
+    public function show($slug)
+    {
+        $studio = Studio::where('slug', $slug)->first();
+        return view('admin.studio.show', compact('studio'));
+    }
 }

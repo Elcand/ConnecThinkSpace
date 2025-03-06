@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'List Studio')
     <section>
         <div class="container">
             <div class="row">
