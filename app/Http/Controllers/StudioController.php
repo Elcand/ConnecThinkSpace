@@ -59,4 +59,37 @@ class StudioController extends Controller
         $studio = Studio::where('slug', $slug)->first();
         return view('admin.studio.show', compact('studio'));
     }
+
+    public function edit($slug)
+    {
+        $studio = Studio::where('slug', $slug)->first();
+        return view('admin.studio.edit', compact('studio'));
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $request->validate([
+            'image'        => 'image|mimes:jpeg,png,jpg|max:2048',
+            'name_labs'    => 'required|string',
+            'description'  => 'required|string',
+        ]);
+
+        $studio = Studio::where('slug', $slug)->first();
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('studio', $filename);
+            $imagePath = 'studio/' . $filename;
+        } else {
+            $imagePath = $studio->image;
+        }
+
+        $studio->update([
+            'image'        => $imagePath,
+            'name_labs'    => $request->name_labs,
+            'description'  => $request->description,
+        ]);
+        return redirect()->route('admin.studio.index')->with('success', 'Studio berhasil diubah');
+    }
 }

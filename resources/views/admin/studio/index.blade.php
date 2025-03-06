@@ -30,7 +30,8 @@
                                         <li><a class="dropdown-item"
                                                 href="{{ route('admin.studio.show', $studio->slug) }}">Show</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('admin.studio.edit', $studio->slug) }}">Edit</a></li>
                                         <li><a class="dropdown-item" href="#">Delete</a></li>
                                     </ul>
                                 </td>
