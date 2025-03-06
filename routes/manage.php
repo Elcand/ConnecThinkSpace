@@ -17,4 +17,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/studio/edit/{slug}', [StudioController::class, 'edit'])->name('studio.edit');
     Route::put('/studio/update/{slug}', [StudioController::class, 'update'])->name('studio.update');
     Route::delete('/studio/delete/{slug}', [StudioController::class, 'destroy'])->name('studio.delete');
+    Route::patch('/studio/restore/{slug}', [StudioController::class, 'restore'])->name('studio.restore');
 });

@@ -92,4 +92,20 @@ class StudioController extends Controller
         ]);
         return redirect()->route('admin.studio.index')->with('success', 'Studio berhasil diubah');
     }
+
+    public function destroy($slug)
+    {
+        $studio = Studio::where('slug', $slug)->first();
+        $studio->delete();
+
+        return redirect()->route('admin.studio.index')->with('success', 'Studio successfully deleted');
+    }
+
+    public function restore($slug)
+    {
+        $studio = Studio::withTrashed()->where('slug', $slug)->firstOrFail();
+        $studio->restore();
+
+        return response()->json(['message' => 'The studio was successfully restored']);
+    }
 }

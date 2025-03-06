@@ -32,7 +32,10 @@
                                         </li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('admin.studio.edit', $studio->slug) }}">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                                        <li>
+                                            <a href="" class="dropdown-item"
+                                                onclick="confirmDelete('{{ route('admin.studio.delete', $studio->slug) }}')">Delete</a>
+                                        </li>
                                     </ul>
                                 </td>
                             </tr>
