@@ -16,13 +16,17 @@
                     <div class="card h-100 shadow-lg border border-dark-subtle">
                         <figure class="card-img-top overlay overlay-1 hover-scale">
                             <a href="#" class="position-relative d-block">
-                                <div class="card-img-top img-fluid  bg-overlay-600"
-                                    style="background-image: url('{{ isset($studio) && $studio->image
-                                        ? (Str::startsWith($studio->image, 'storage/studio/')
-                                            ? asset($studio->image)
-                                            : asset('assets/img/' . $studio->image))
-                                        : asset('assets/img/lab.jpeg') }}');
-                                    background-size: cover; background-position: center; height: 250px; border-radius: 10px;">
+                                <div class="card-body">
+                                    @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
+                                        <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
+                                            style="width: 200px; height: auto;">
+                                    @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
+                                        <img src="{{ $studio->image }}" class="rounded"
+                                            style="width: 200px; height: auto;">
+                                    @else
+                                        <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
+                                            style="width: 200px; height: auto;">
+                                    @endif
                                 </div>
                                 <figcaption>
                                     <h5 class="from-top mb-0">Read More</h5>
