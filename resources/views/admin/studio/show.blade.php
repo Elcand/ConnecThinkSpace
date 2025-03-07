@@ -7,10 +7,18 @@
                 <div class="row">
                     <div class="col-md-6 ">
                         <label class="fw-bold fs-4 text-gray-800">Image Studio :</label>
-                        <div class="card-body ">
-                            <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
-                                style="width: 200px; height:auto;">
+                        <div class="card-body">
+                            @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
+                                <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
+                                    style="width: 200px; height: auto;">
+                            @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
+                                <img src="{{ $studio->image }}" class="rounded" style="width: 200px; height: auto;">
+                            @else
+                                <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
+                                    style="width: 200px; height: auto;">
+                            @endif
                         </div>
+
                     </div>
                     <div>
                         <label class="fw-bold fs-4 text-gray-800 mb-2 mt-4">Name Studio</label>
@@ -19,12 +27,12 @@
                     </div>
                     <div>
                         <label class="fw-bold fs-4 text-gray-800 mb-2 mt-4">Description</label>
-                        <h3 class="mb-4 fs-4 font-bold border border-gray-300 rounded ps-4 pt-2 pb-2">
-                            {{ $studio->description }}</h3>
+                        <p class="mb-4 text-xs font-semibold border border-gray-300 rounded ps-4 pt-2 pb-2">
+                            {{ $studio->description }}</p>
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('admin.studio.index') }}" class="btn btn-warning text-dark fw-bold mb-4 mt-4">
-                            Back
+                    <div class="text-end pb-5 pt-3">
+                        <a href="{{ route('admin.studio.index') }}">
+                            <button type="button" class="btn btn-light">{{ __('Back') }}</button>
                         </a>
                     </div>
                 </div>
