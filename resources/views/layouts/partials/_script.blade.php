@@ -34,22 +34,32 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(url, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Content-Type': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        Swal.fire("Succeed!", "Studio successfully deleted.", "success").then(() => {
-                            location.reload();
-                        });
-                    } else {
-                        Swal.fire("Fail!", "Studio failed to delete.", "error");
-                    }
-                });
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Requested-With": "XMLHttpRequest"
+                        },
+                        body: JSON.stringify({
+                            _token: document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                "content")
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Response:", data);
+                        if (data.success) {
+                            Swal.fire("Succeed!", "Studio successfully deleted.", "success").then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire("Fail!", data.message || "Studio failed to delete.", "error");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error)
+                        Swal.fire("Fail!", "Something went wrong.", "error");
+                    });
             }
         });
     }
 </script>
-

@@ -29,7 +29,7 @@ class StudioController extends Controller
             });
         }
 
-        $studios = $studios->orderByDesc('id')->paginate($perPage);
+        $studios = $studios->orderBy('id', 'asc')->paginate($perPage);
 
         return view('admin.studio.index', compact('studios'));
     }
@@ -103,16 +103,22 @@ class StudioController extends Controller
             'name_labs'    => $request->name_labs,
             'description'  => $request->description,
         ]);
-        return redirect()->route('admin.studio.index')->with('success', 'Studio berhasil diubah');
+        return redirect()->route('admin.studio.index')->with('success', 'Studio was successfully converted');
     }
 
     public function destroy($slug)
     {
         $studio = Studio::where('slug', $slug)->first();
+
+        if (!$studio) {
+            return response()->json(['success' => false, 'message' => 'Studio not found'], 404);
+        }
+
         $studio->delete();
 
-        return redirect()->route('admin.studio.index')->with('success', 'Studio successfully deleted');
+        return response()->json(['success' => true, 'message' => 'Studio successfully deleted']);
     }
+
 
     public function restore($slug)
     {
