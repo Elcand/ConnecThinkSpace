@@ -3,7 +3,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <h1 class="text-gray-900 text-2xl font-bold mb-6">Create Studio</h1>
+                <h1 class="text-gray-900 text-2xl font-bold mb-6">Edit Studio</h1>
                 <div class="col-md-12">
                     <div class="card border-0 shadow-sm rounded">
                         <div class="card-body">
@@ -14,9 +14,16 @@
                                 <div class="card-body py-4">
                                     <label class="fw-semibold fs-6 mb-2">picture now : </label>
                                     <div class="mb-7">
-                                        <div>
-                                            <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
-                                                style="width: 200px; height:auto; margin-bottom: 1rem;">
+                                        <div class="card-body">
+                                            @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
+                                                <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
+                                                    style="width: 200px; height: auto;">
+                                            @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
+                                                <img src="{{ $studio->image }}" class="rounded" style="width: 200px; height: auto;">
+                                            @else
+                                                <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
+                                                    style="width: 200px; height: auto;">
+                                            @endif
                                         </div>
                                         <label class="fw-semibold fs-6 mb-2">Input image </label>
                                         <input type="file" name="image" id="image"

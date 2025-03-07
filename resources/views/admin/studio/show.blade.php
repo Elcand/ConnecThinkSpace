@@ -18,17 +18,17 @@
                                     style="width: 200px; height: auto;">
                             @endif
                         </div>
-
                     </div>
                     <div>
-                        <label class="fw-bold fs-4 text-gray-800 mb-2 mt-4">Name Studio</label>
-                        <h3 class="mb-4 text-2xl font-bold border border-gray-300 rounded ps-4 pt-2 pb-2">
+                        <label class="fw-bold fs-4 text-gray-900 mb-2 mt-4">Name Studio</label>
+                        <h3 class="mb-4 text-2xl text-gray-700 font-bold border border-gray-300 rounded ps-4 pt-2 pb-2">
                             {{ $studio->name_labs }}</h3>
                     </div>
                     <div>
-                        <label class="fw-bold fs-4 text-gray-800 mb-2 mt-4">Description</label>
-                        <p class="mb-4 text-xs font-semibold border border-gray-300 rounded ps-4 pt-2 pb-2">
-                            {{ $studio->description }}</p>
+                        <label class="fw-bold fs-4 text-gray-900 mb-2 mt-4">Description</label>
+                        <h5
+                            class="mb-4 text-xs font-semibold text-gray-700 border border-gray-300 rounded ps-4 pt-2 pb-2">
+                            {{ $studio->description }}</h5>
                     </div>
                     <div class="text-end pb-5 pt-3">
                         <a href="{{ route('admin.studio.index') }}">
