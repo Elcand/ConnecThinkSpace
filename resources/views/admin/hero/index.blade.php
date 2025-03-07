@@ -60,11 +60,10 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="text-center mb-4">
-                                    <button type="submit"
-                                        class="btn bg-gray-900 btn-md btn-dark me-3 border-gray-900">SAVE</button>
-                                    <button type="reset"
-                                        class="btn bg-red-700 btn-md btn-warning border-red-700">RESET</button>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <button type="submit" class="btn btn-primary" name="save">
+                                        <span class="indicator-label" id="submit">Submit</span>
+                                    </button>
                                 </div>
                             </form>
                         </div>
