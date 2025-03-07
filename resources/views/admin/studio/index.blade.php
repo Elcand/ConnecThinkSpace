@@ -6,7 +6,12 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <input type="text" class="form-control w-50" placeholder="Search user">
+                    <form action="{{ route('admin.studio.index') }}" method="GET" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Search"
+                                value="{{ request('search') }}">
+                        </div>
+                    </form>
                     <a href="{{ route('admin.studio.create') }}" class="btn btn-primary">+ Add
                         User</a>
                 </div>
@@ -42,6 +47,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $studios->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -15,9 +15,22 @@ class StudioController extends Controller
         return view('studio', compact('studios'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $studios = Studio::all();
+        $search = $request->input('search');
+        $perPage = 10;
+
+        $studios = Studio::whereNull('deleted_at');
+
+        if ($search) {
+            $studios->where(function ($q) use ($search) {
+                $q->where('name_labs', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
+            });
+        }
+
+        $studios = $studios->orderByDesc('id')->paginate($perPage);
+
         return view('admin.studio.index', compact('studios'));
     }
 
