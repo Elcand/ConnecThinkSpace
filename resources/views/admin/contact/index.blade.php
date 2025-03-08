@@ -5,15 +5,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <form action="{{ route('admin.studio.index') }}" method="GET" class="mb-3">
+                    <form action="{{ route('admin.contact.index') }}" method="GET" class="mb-3">
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-outline ki-magnifier fs-3 position-absolute ms-5"></i>
                             <input type="text" name="search" class="form-control form-control-solid w-250px ps-13"
                                 placeholder="Search" value="{{ request('search') }}">
                         </div>
                     </form>
-                    <a href="{{ route('admin.studio.create') }}" class="btn btn-primary">+ Add
-                        User</a>
                 </div>
                 <table class="table align-middle fw-bold">
                     <thead>

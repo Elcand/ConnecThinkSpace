@@ -15,9 +15,24 @@ class ContactController extends Controller
         return view('contact', compact('contacts'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = FormContact::all();
+        $search = $request->input('search');
+        $perPage = 10;
+
+        $contacts = FormContact::whereNull('deleted_at');
+
+        if ($search) {
+            $contacts->where(function ($q) use ($search) {
+                $q->where('first_name', 'like', '%' . $search . '%')
+                    ->orWhere('last_name', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('message', 'like', '%' . $search . '%');
+            });
+        }
+
+        $contacts = $contacts->orderBy('id', 'asc')->paginate($perPage);
+
         return view('admin.contact.index', compact('contacts'));
     }
 

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('form_contacts', function (Blueprint $table) {
             $table->string('slug')->unique()->after('last_name');
+            $table->softDeletes();
         });
     }
 
@@ -22,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('form_contacts', function (Blueprint $table) {
-           $table->dropColumn('slug');
+            $table->dropColumn('slug');
+            $table->dropSoftDeletes();
         });
     }
 };
