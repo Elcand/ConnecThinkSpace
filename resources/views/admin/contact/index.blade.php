@@ -42,9 +42,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{-- <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
                     {{ $contacts->links() }}
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

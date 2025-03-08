@@ -45,7 +45,7 @@ class StudioController extends Controller
         $request->validate([
             'image'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name_labs'    => 'required|string',
-            'description'  => 'required|string',
+            'description'  => 'required|text',
         ]);
 
         if ($request->hasFile('image')) {
@@ -84,7 +84,7 @@ class StudioController extends Controller
         $request->validate([
             'image'        => 'image|mimes:jpeg,png,jpg|max:2048',
             'name_labs'    => 'required|string',
-            'description'  => 'required|string',
+            'description'  => 'required|text',
         ]);
 
         $studio = Studio::where('slug', $slug)->first();
