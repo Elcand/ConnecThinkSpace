@@ -15,7 +15,10 @@
                                     <label class="fw-semibold fs-6 mb-2">picture now : </label>
                                     <div class="mb-7">
                                         <div class="card-body">
-                                            @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
+                                            @if (
+                                                !empty($studio->image) &&
+                                                    file_exists(public_path('storage/' . $studio->image)) &&
+                                                    !str_contains($studio->image, 'http'))
                                                 <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
                                                     style="width: 200px; height: auto;">
                                             @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
@@ -25,6 +28,7 @@
                                                 <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
                                                     style="width: 200px; height: auto;">
                                             @endif
+
                                         </div>
                                         <label class="fw-semibold fs-6 mb-2">Input image </label>
                                         <input type="file" name="image" id="image"

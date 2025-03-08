@@ -5,19 +5,21 @@
         <div class="card">
             <div class="container mt-10 ps-8">
                 <div class="row">
+                    <label class="fw-bold fs-4 text-gray-800">Image Studio :</label>
                     <div class="col-md-6 ">
-                        <label class="fw-bold fs-4 text-gray-800">Image Studio :</label>
-                        <div class="card-body">
-                            @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
-                                <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
-                                    style="width: 200px; height: auto;">
-                            @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
-                                <img src="{{ $studio->image }}" class="rounded" style="width: 200px; height: auto;">
-                            @else
-                                <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
-                                    style="width: 200px; height: auto;">
-                            @endif
-                        </div>
+                        @if (
+                            !empty($studio->image) &&
+                                file_exists(public_path('storage/' . $studio->image)) &&
+                                !str_contains($studio->image, 'http'))
+                            <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
+                                style="width: 200px; height: auto;">
+                        @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
+                            <img src="{{ $studio->image }}" class="rounded" style="width: 200px; height: auto;">
+                        @else
+                            <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
+                                style="width: 200px; height: auto;">
+                        @endif
+
                     </div>
                     <div>
                         <label class="fw-bold fs-4 text-gray-900 mb-2 mt-4">Name Studio</label>

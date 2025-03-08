@@ -13,21 +13,23 @@
         @else
             @foreach ($studios as $studio)
                 <div class="col">
-                    <div class="card h-100 shadow-lg border border-dark-subtle">
+                    <div class="card h-100 shadow-lg border border- border-dark-subtle">
                         <figure class="card-img-top overlay overlay-1 hover-scale">
                             <a href="#" class="position-relative d-block">
-                                <div class="card-body">
-                                    @if (file_exists(public_path('storage/' . $studio->image)) && !str_contains($studio->image, 'http'))
-                                        <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
-                                            style="width: 200px; height: auto;">
-                                    @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
-                                        <img src="{{ $studio->image }}" class="rounded"
-                                            style="width: 200px; height: auto;">
-                                    @else
-                                        <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
-                                            style="width: 200px; height: auto;">
-                                    @endif
-                                </div>
+                                @if (
+                                    !empty($studio->image) &&
+                                        file_exists(public_path('storage/' . $studio->image)) &&
+                                        !str_contains($studio->image, 'http'))
+                                    <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
+                                        style=" height: 150px; object-fit: cover;">
+                                @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
+                                    <img src="{{ $studio->image }}" class="rounded"
+                                        style=" height: 150px; object-fit: cover;">
+                                @else
+                                    <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
+                                        style=" height: 150px; object-fit: cover;">
+                                @endif
+
                                 <figcaption>
                                     <h5 class="from-top mb-0">Read More</h5>
                                 </figcaption>
@@ -35,7 +37,7 @@
                         </figure>
                         <div class="card-body">
                             <h2 class="h3 text-dark">{{ $studio->name_labs }}</h2>
-                            <p class="text-muted small">{{ $studio->description }}</p>
+                            <p class="text-muted small">{{ Str::limit($studio->description, 50, '...') }}</p>
                         </div>
                     </div>
                 </div>
