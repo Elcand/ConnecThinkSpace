@@ -58,7 +58,7 @@
             @endcanany --}}
 
             <div data-kt-menu-trigger="click"
-                class="menu-item menu-accordion {{ request()->is(['resources', 'resources/*']) ? 'here show' : '' }}">
+                class="menu-item menu-accordion {{ request()->is(['admin', 'admin/*']) ? 'here show' : '' }}">
                 <span class="menu-link">
                     <span class="menu-icon">
                         <i class="fa-solid fa-chart-simple"></i>
@@ -69,7 +69,7 @@
 
                 <div class="menu-sub menu-sub-accordion">
                     <div class="menu-item">
-                        <a class="menu-link {{ request()->is(['resources/users', 'resources/users/*']) ? 'active ' : '' }}"
+                        <a class="menu-link {{ request()->is(['admin/hero', 'admin/hero/*']) ? 'active ' : '' }}"
                             href="{{ route('admin.hero.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -81,7 +81,7 @@
 
                 <div class="menu-sub menu-sub-accordion">
                     <div class="menu-item">
-                        <a class="menu-link {{ request()->is(['resources/users', 'resources/users/*']) ? 'active ' : '' }}"
+                        <a class="menu-link {{ request()->is(['admin/studio', 'admin/studio/*']) ? 'active ' : '' }}"
                             href="{{ route('admin.studio.index') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="menu-item">
-                <a class="menu-link {{ request()->is(['resources', 'resources/*']) ? 'here show' : '' }}"
+                <a class="menu-link {{ request()->is(['admin/contact', 'admin/contact/*']) ? 'active' : '' }}"
                     href="{{ route('admin.contact.index') }}">
                     <span class="menu-icon">
                         <i class="fa-solid fa-address-book"></i>
