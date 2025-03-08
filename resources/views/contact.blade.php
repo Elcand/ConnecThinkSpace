@@ -20,8 +20,8 @@
                             </div>
                         @endif
 
-                        <form class="contact-form needs-validation" method="post" action="{{ route('contact.store') }}"
-                            novalidate>
+                        <form class="contact-form needs-validation" method="post"
+                            action="{{ route('admin.contact.store') }}" novalidate>
                             @csrf
                             <div class="messages"></div>
                             <div class="row gx-4">
@@ -43,7 +43,7 @@
                                         <div class="invalid-feedback"> Please enter your last name. </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-floating mb-4">
                                         <input id="form_email" type="email" name="email" class="form-control"
                                             placeholder="" value="{{ old('email') }}" required autocomplete="off">

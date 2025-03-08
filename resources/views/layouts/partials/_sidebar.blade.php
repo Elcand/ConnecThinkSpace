@@ -92,6 +92,16 @@
                 </div>
             </div>
 
+            <div class="menu-item">
+                <a class="menu-link {{ request()->is(['resources', 'resources/*']) ? 'here show' : '' }}"
+                    href="{{ route('admin.contact.index') }}">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-address-book"></i>
+                    </span>
+                    <span class="menu-title">Contact</span>
+                </a>
+            </div>
+
             @canany(['users-view', 'roles-view', 'permission-view'])
                 <div data-kt-menu-trigger="click"
                     class="menu-item menu-accordion {{ request()->is(['resources', 'resources/*']) ? 'here show' : '' }}">

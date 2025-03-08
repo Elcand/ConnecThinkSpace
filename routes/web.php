@@ -10,10 +10,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/studio', [StudioController::class, 'studio']);
 
-Route::get('/contact', [ContactController::class, 'contact']);
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
-
 Route::get('/login', function () {
     return redirect()->route('login');
 });
@@ -37,3 +33,4 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/resources.php';
 require __DIR__ . '/master.php';
 require __DIR__ . '/manage.php';
+require __DIR__ . '/contact.php';

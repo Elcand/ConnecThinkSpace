@@ -15,6 +15,12 @@ class ContactController extends Controller
         return view('contact', compact('contacts'));
     }
 
+    public function index()
+    {
+        $contacts = FormContact::all();
+        return view('admin.contact.index', compact('contacts'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
