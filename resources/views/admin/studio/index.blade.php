@@ -28,7 +28,7 @@
                         @foreach ($studios as $studio)
                             <tr>
                                 <td class="text-gray-700">{{ $studio->name_labs }}</td>
-                                <td class="text-gray-700">{{ $studio->description }}</td>
+                                <td class="text-gray-700">{{ Str::limit($studio->description, 100, '...') }}</td>
                                 <td>
                                     <button class="btn
                                     btn-light dropdown-toggle"

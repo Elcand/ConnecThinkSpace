@@ -19,7 +19,8 @@
                                                 <img src="{{ asset('storage/' . $studio->image) }}" class="rounded"
                                                     style="width: 200px; height: auto;">
                                             @elseif(filter_var($studio->image, FILTER_VALIDATE_URL))
-                                                <img src="{{ $studio->image }}" class="rounded" style="width: 200px; height: auto;">
+                                                <img src="{{ $studio->image }}" class="rounded"
+                                                    style="width: 200px; height: auto;">
                                             @else
                                                 <img src="{{ asset('assets/img/lab.jpeg') }}" class="rounded"
                                                     style="width: 200px; height: auto;">
@@ -42,9 +43,9 @@
 
                                     <div class="mb-7">
                                         <label class="required fw-semibold fs-6 mb-2">Description</label>
-                                        <input type="text" name="description" id="description"
+                                        <textarea type="text" name="description" id="description"
                                             class="form-control form-control-solid mb-3 mb-lg-0 {{ $errors->get('description') ? 'is-invalid border border-1 border-danger' : '' }}"
-                                            placeholder="Input description" value="{{ $studio->description }}" />
+                                            placeholder="Input description"> {{ $studio->description }}</textarea>
                                         <x-input-error class="mt-2" :messages="$errors->get('description')" />
                                     </div>
                                 </div>
