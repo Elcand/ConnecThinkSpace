@@ -34,4 +34,10 @@ class ContactController extends Controller
 
         return redirect()->back()->with('success', 'Contact created successfully.');
     }
+
+    public function show($slug)
+    {
+        $contact = FormContact::where('slug', $slug)->first();
+        return view('admin.contact.show', compact('contact'));
+    }
 }
